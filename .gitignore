@@ -1,0 +1,4 @@
+# Project exclude paths
+/common/target/
+/order-center/target/
+/points-center/target/

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xxx.points.dao.TPointsMapper">
+
+	<resultMap type="TPoints" id="Result">
+		<id     property="id"        column="id"           />
+		<result property="userId"    column="user_id"       />
+		<result property="orderNo"    column="order_no"       />
+		<result property="points"    column="points"       />
+		<result property="remarks"    column="remarks"       />
+	</resultMap>
+
+	<insert id="insertTPoints" parameterType="TPoints">
+		insert into t_points (user_id, order_no, points, remarks)
+		values (#{userId}, #{orderNo}, #{points}, #{remarks})
+	</insert>
+
+	<select id="selectTPointsById" resultMap="Result">
+		select * from t_points where order_no=#{orderNo} limit 1
+	</select>
+</mapper>
